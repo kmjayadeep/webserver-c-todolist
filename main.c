@@ -4,6 +4,7 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 #include <string.h>
+#include "webserver.h"
 
 #define PORT 10000
 #define BUFFER_SIZE 1024
@@ -11,6 +12,11 @@
 int handle_client(int socket_fd);
 
 int main() {
+
+  webserver *ws = webserver_create(9999);
+  webserver_run(ws);
+
+
   int server_fd;
   int opt = 1;
   if ((server_fd = socket(AF_INET, SOCK_STREAM, 0)) == 0) {
@@ -102,3 +108,4 @@ int handle_client(int socket_fd) {
 
   return total_bytes_received;
 }
+

@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -std=c11
 LDFLAGS =
-SRC = main.c
+SRC = main.c webserver.c
 OBJ = $(SRC:.c=.o)
 EXEC = webserver
 
